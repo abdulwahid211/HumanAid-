@@ -34,7 +34,7 @@ CREATE TABLE Backlog (
     Description LONGTEXT NOT NULL,
     Created datetime NOT NULL,
     PRIMARY KEY (Id),
-    FOREIGN KEY (Seeker) REFERENCES Seeker(Id)
+    FOREIGN KEY (SeekerNo) REFERENCES Seeker(Id)
 );
 
 CREATE TABLE Task (
@@ -43,7 +43,7 @@ CREATE TABLE Task (
     VolunteerNo int,
     SupplierNo int NOT NULL,
     Status varchar(255) NOT NULL,
-    BacklogNo NOT NULL,
+    BacklogNo int NOT NULL,
     Created datetime NOT NULL,
     PRIMARY KEY (Id),
     FOREIGN KEY (SeekerNo) REFERENCES Seeker(Id),
