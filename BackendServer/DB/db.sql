@@ -14,7 +14,6 @@ CREATE TABLE Supplier (
   Postcode varchar(255) NOT NULL,
   Type varchar NOT NULL,
   Telephone LONGTEXT NOT NULL,
-  Package LONGTEXT(255) NOT NULL,
   PRIMARY KEY (Id)
 );
 
@@ -43,16 +42,30 @@ CREATE TABLE Task (
     SeekerNo int NOT NULL,
     VolunteerNo int,
     SupplierNo int NOT NULL,
-    Delivered varchar(255) NOT NULL,
+    Status varchar(255) NOT NULL,
     BacklogNo NOT NULL,
+    Created datetime NOT NULL,
     PRIMARY KEY (Id),
     FOREIGN KEY (SeekerNo) REFERENCES Seeker(Id),
     FOREIGN KEY (SupplierNo) REFERENCES Supplier(Id),
     FOREIGN KEY (BacklogNo) REFERENCES Backlog(Id)
 );
 
-INSERT INTO Applicants ( LastName, FirstName, Address, City, Postcode, Email, Password)
-VALUES ( 'James', 'Robertson', 'Causeway', 'Manchester', 'EC1 ASD', 'ABDULK@GMAIL.COM', 'PASSWORD');
+-- Sample data
+INSERT INTO Seeker ( Username, Telephone , Email, City, Postcode)
+VALUES ( 'abdul211', '07395838344', 'abdulwahid@gmail.com', 'Manchester', 'EC1 ASD');
+
+INSERT INTO Volunteer ( Username, Telephone , Email, City)
+VALUES ( 'fredABC', '07395838344', 'fredBack@gmail.com', 'Manchester');
+
+INSERT INTO Supplier ( Name, Postcode , Type , Telephone)
+VALUES ( 'NHS', 'E14 86A', 'Homeless Shelter', '07395838344');
+
+INSERT INTO Backlog ( SeekerNo, Title , Description , Created)
+VALUES ( 1, 'Blood', 'Need Blood', 'I need blood bruv!', '12/09/2023');
+
+INSERT INTO Task ( SeekerNo, VolunteerNo , SupplierNo , Status, BacklogNo,Created)
+VALUES ( 1, null, 1, 'Available', 1,'15/09/2023');
 
 
 -- SELECT * from Vacancies inner join Employer where Vacancies.VacancyID=145 and Vacancies.EmployerID = Employer.EmployerID;
