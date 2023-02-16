@@ -62,10 +62,11 @@ INSERT INTO Supplier ( Name, Postcode , Type , Telephone)
 VALUES ( 'NHS', 'E14 86A', 'Homeless Shelter', '07395838344');
 
 INSERT INTO Backlog ( SeekerNo, Title , Description , Created)
-VALUES ( 1, 'Blood', 'Need Blood', 'I need blood bruv!', '12/09/2023');
+VALUES ( 1, 'Blood', 'I need blood bruv!', '00:00:00');
+
 
 INSERT INTO Task ( SeekerNo, VolunteerNo , SupplierNo , Status, BacklogNo,Created)
-VALUES ( 1, null, 1, 'Available', 1,'15/09/2023');
+VALUES ( 1, null, 1, 'Available', 1,'04:00:00');
 
 
 -- SELECT * from Vacancies inner join Employer where Vacancies.VacancyID=145 and Vacancies.EmployerID = Employer.EmployerID;
